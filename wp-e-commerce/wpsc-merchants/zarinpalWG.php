@@ -87,7 +87,7 @@ class wpsc_merchant_zarinpalwg_standard extends wpsc_merchant {
 	* @access public
 	*/
     function send($desc,$merchent,$amount,$redirect){
-	$client = new SoapClient('https://www.zarinpal.com/pg/services/WebGate/wsdl', array('encoding'=>'UTF-8'));
+	$client = new SoapClient('https://de.zarinpal.com/pg/services/WebGate/wsdl', array('encoding'=>'UTF-8'));
 	$res = $client->PaymentRequest(
 		array(
 						'MerchantID' 	=> $merchent ,
@@ -104,7 +104,7 @@ class wpsc_merchant_zarinpalwg_standard extends wpsc_merchant {
     return $res;
 	}
     function get($merchent,$au,$amount){
-	$client = new SoapClient('https://www.zarinpal.com/pg/services/WebGate/wsdl', array('encoding'=>'UTF-8'));
+	$client = new SoapClient('https://de.zarinpal.com/pg/services/WebGate/wsdl', array('encoding'=>'UTF-8'));
 	$res = $client->PaymentVerification(
 			array(
 					'MerchantID'	 => $merchent ,
