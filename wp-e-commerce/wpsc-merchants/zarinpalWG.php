@@ -131,7 +131,10 @@ class wpsc_merchant_zarinpalwg_standard extends wpsc_merchant {
         if ($result->Status == 100 ){
             wp_redirect("https://www.zarinpal.com/pg/StartPay/" . $result->Authority);
             exit;
+        }else{
+        	echo'ERR:'.$result->Status;
         }
+        
 	}
 
 	/**
@@ -175,6 +178,7 @@ function nzshpcrt_zarinpalwg_callback() {
                 $f->set_transaction_details( $refid, 6 );
 				$f->go_to_transaction_results( $_SESSION['sec_zarinpalwg'] );
                 transaction_results($_SESSION['sec_zarinpalwg'], false, $refid);
+                echo'ERR:'.$result->Status;
 				break;
 		}
 
